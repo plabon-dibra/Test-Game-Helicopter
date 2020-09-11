@@ -1,0 +1,215 @@
+# depslib dependency file v1.0
+1598292624 source:e:\development\games\testing\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"Src\Window\Window.h"
+	"Src\Rect\Rect.h"
+	"Sound.h"
+
+1598259107 e:\development\games\testing\src\window\window.h
+	<string>
+	<SDL_mixer.h>
+	<SDL.h>
+
+1598007234 e:\development\games\testing\src\rect\rect.h
+	<string>
+	"../Window/Window.h"
+
+1598260138 source:e:\development\games\testing\src\window\window.cpp
+	"Window.h"
+	<SDL_image.h>
+	<iostream>
+
+1598205383 source:e:\development\games\testing\src\rect\rect.cpp
+	"Rect.h"
+	<SDL_image.h>
+	<iostream>
+
+1598291978 source:e:\development\games\testing\src\sound\sound.cpp
+	"Sound.h"
+	<iostream>
+
+1598290037 e:\development\games\testing\src\sound\sound.h
+	<SDL_mixer.h>
+	<vector>
+	<SDL.h>
+
+1599200117 source:c:\users\plabo\desktop\testing\src\rect\rect.cpp
+	"Rect.h"
+	<SDL_image.h>
+	<iostream>
+
+1598988725 c:\users\plabo\desktop\testing\src\rect\rect.h
+	<string>
+	"../Window/Window.h"
+
+1599198474 c:\users\plabo\desktop\testing\src\window\window.h
+	<string>
+	<SDL_mixer.h>
+	<SDL.h>
+	<SDL_ttf.h>
+
+1598714466 source:c:\users\plabo\desktop\testing\src\sound\sound.cpp
+	"Sound.h"
+	<iostream>
+
+1598714534 c:\users\plabo\desktop\testing\src\sound\sound.h
+	<SDL_mixer.h>
+	<vector>
+	<SDL.h>
+
+1599198531 source:c:\users\plabo\desktop\testing\src\window\window.cpp
+	"Window.h"
+	<SDL_image.h>
+	<iostream>
+
+1599201808 source:c:\users\plabo\desktop\testing\main.cpp
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"Src\Window\Window.h"
+	"Src\Rect\Rect.h"
+	"Sound.h"
+
+1598724755 source:c:\users\plabo\desktop\testing\src\mainmenu\mainmenu.cpp
+	"MainMenu.h"
+	<iostream>
+
+1598724631 c:\users\plabo\desktop\testing\src\mainmenu\mainmenu.h
+	"../Rect/Rect.h"
+
+1598735103 source:h:\development\games\testing\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"Src\Window\Window.h"
+	"Src\Rect\Rect.h"
+	"Sound.h"
+
+1598719999 h:\development\games\testing\src\window\window.h
+	<string>
+	<SDL_mixer.h>
+	<SDL.h>
+
+1598713321 h:\development\games\testing\src\rect\rect.h
+	<string>
+	"../Window/Window.h"
+
+1598714534 h:\development\games\testing\src\sound\sound.h
+	<SDL_mixer.h>
+	<vector>
+	<SDL.h>
+
+1598725793 source:h:\development\games\testing\src\rect\rect.cpp
+	"Rect.h"
+	<SDL_image.h>
+	<iostream>
+
+1598714466 source:h:\development\games\testing\src\sound\sound.cpp
+	"Sound.h"
+	<iostream>
+
+1598732403 source:h:\development\games\testing\src\window\window.cpp
+	"Window.h"
+	<SDL_image.h>
+	<iostream>
+
+1599205632 source:c:\users\plabo\desktop\testing\src\text\text.cpp
+	"Text.h"
+
+1599205456 c:\users\plabo\desktop\testing\src\text\text.h
+	<SDL.h>
+	<SDL_ttf.h>
+	"../Window/Window.h"
+	<string>
+
+1599754071 source:h:\game test\test4\main.cpp
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"Src\Window\Window.h"
+	"Src\Rect\Rect.h"
+	"Sound.h"
+
+1599198474 h:\game test\test4\src\window\window.h
+	<string>
+	<SDL_mixer.h>
+	<SDL.h>
+	<SDL_ttf.h>
+
+1598988725 h:\game test\test4\src\rect\rect.h
+	<string>
+	"../Window/Window.h"
+
+1598714534 h:\game test\test4\src\sound\sound.h
+	<SDL_mixer.h>
+	<vector>
+	<SDL.h>
+
+1599754283 source:h:\game test\test4\src\rect\rect.cpp
+	"Rect.h"
+	<SDL_image.h>
+	<iostream>
+
+1599735405 source:h:\game test\test4\src\sound\sound.cpp
+	"Sound.h"
+	<iostream>
+
+1599205632 source:h:\game test\test4\src\text\text.cpp
+	"Text.h"
+
+1599205456 h:\game test\test4\src\text\text.h
+	<SDL.h>
+	<SDL_ttf.h>
+	"../Window/Window.h"
+	<string>
+
+1599198531 source:h:\game test\test4\src\window\window.cpp
+	"Window.h"
+	<SDL_image.h>
+	<iostream>
+
+1599788897 source:c:\users\plabo\desktop\test4\src\rect\rect.cpp
+	"Rect.h"
+	<SDL_image.h>
+	<iostream>
+
+1599789068 c:\users\plabo\desktop\test4\src\rect\rect.h
+	<string>
+	"../Window/Window.h"
+
+1599198474 c:\users\plabo\desktop\test4\src\window\window.h
+	<string>
+	<SDL_mixer.h>
+	<SDL.h>
+	<SDL_ttf.h>
+
+1599735405 source:c:\users\plabo\desktop\test4\src\sound\sound.cpp
+	"Sound.h"
+	<iostream>
+
+1598714534 c:\users\plabo\desktop\test4\src\sound\sound.h
+	<SDL_mixer.h>
+	<vector>
+	<SDL.h>
+
+1599198531 source:c:\users\plabo\desktop\test4\src\window\window.cpp
+	"Window.h"
+	<SDL_image.h>
+	<iostream>
+
+1599790407 source:c:\users\plabo\desktop\test4\main.cpp
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"Src\Window\Window.h"
+	"Src\Rect\Rect.h"
+	"Sound.h"
+
