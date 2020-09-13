@@ -54,6 +54,7 @@ int main(int argc,char *argv[])
 
     Rect welcome=Rect(window,0,0,Width,Height,"Assets/Images/Welcome.png");
     Rect background=Rect(window,0,0,Width,Height,"Assets/Images/back.png");
+    Rect gameOver=Rect(window,0,0,Width,Height,"Assets/Images/gameOver.jpg");
 
     Rect menu=Rect(window,0,0,Width,Height,"Assets/Images/Menu/menu.jpg");
     Rect playMenu=Rect(window,0,0,Width,Height,"Assets/Images/Menu/playMenu.jpg");
@@ -100,13 +101,18 @@ int main(int argc,char *argv[])
     SDL_Delay(2000);///2 second Delay
 
 
+stage1:
 
+
+    window._closed=0;
+    heli1._y=Height/2;
     int run =1,n=0,m=0,M=0,Mm=0;
     float v_level=LEVEL_EASY;  ///initially  Easy level
-
-    SDL_Event event;
+    SDL_Event evnt;
+    SDL_Event event=evnt;
     while(run==1)
     {
+        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
         SDL_PollEvent(&event);
         switch(event.type)
         {
@@ -363,6 +369,9 @@ int main(int argc,char *argv[])
         }
         SDL_RenderPresent(window._renderer);
         SDL_RenderClear(window._renderer);
+
+        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
+
     }
 
 
@@ -400,6 +409,7 @@ int main(int argc,char *argv[])
     for(int i=0; i<5; i++)
     {
         prob=rand()%5;
+        std::cout<<"Prob "<<prob<<std::endl;
         a[i].pos_y1=vec[prob].first;
         a[i].pos_y2=vec[prob].second;
     }
@@ -443,7 +453,12 @@ int main(int argc,char *argv[])
         ///collision
         if(heli1.collision(0,0,0,heli1._x,heli1._y))
         {
+            gameOver.draw();
+            SDL_RenderPresent(window._renderer);
+            SDL_RenderClear(window._renderer);
             window.close();
+            break;
+
         }
 
 
@@ -461,14 +476,37 @@ int main(int argc,char *argv[])
             f=false;
         }
 
-
-
-
         window.clear();
         SDL_Delay(v_level);
     }
 
 
-    std::cout<<"Thank you!"<<std::endl;
+
+
+
+
+///    goto main menu
+    int r=1;
+    SDL_Event ev=evnt;
+    while(r==1)
+    {
+//        std::cout<<"Running 1"<<std::endl;
+        SDL_PollEvent(&ev);
+        switch(ev.type)
+        {
+        case SDL_KEYDOWN:
+            switch(ev.key.keysym.sym)
+            {
+            case SDLK_KP_ENTER:
+//                std::cout<<"Pressed Enter"<<std::endl;
+                r=0;
+                goto stage1;///play again
+                break;
+            }
+            break;
+        }
+    }
+
+    std::cout<<"Thank you! "<<std::endl;
     return 0;
 }

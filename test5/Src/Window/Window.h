@@ -18,12 +18,12 @@ class Window
         void close(){_closed=true;};
         SDL_Window* _window =nullptr;
         SDL_Renderer* _renderer=nullptr;
+        bool _closed=false;
 
     private:
         std::string m_title;
         int _width=Width;
         int _height=Height;
-        bool _closed=false;
 };
 
 #endif // WINDOW_H
