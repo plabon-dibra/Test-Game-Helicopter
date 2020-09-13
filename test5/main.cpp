@@ -100,16 +100,16 @@ int main(int argc,char *argv[])
     SDL_RenderClear(window._renderer);
     SDL_Delay(2000);///2 second Delay
 
+    SDL_Event evnt,ev,event;
+
 
 stage1:
 
-
     window._closed=0;
-    heli1._y=Height/2;
+    heli1._y=Height/3;
     int run =1,n=0,m=0,M=0,Mm=0;
     float v_level=LEVEL_EASY;  ///initially  Easy level
-    SDL_Event evnt;
-    SDL_Event event=evnt;
+    event=evnt;
     while(run==1)
     {
         std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
@@ -487,7 +487,7 @@ stage1:
 
 ///    goto main menu
     int r=1;
-    SDL_Event ev=evnt;
+    ev=evnt;
     while(r==1)
     {
 //        std::cout<<"Running 1"<<std::endl;
@@ -497,7 +497,14 @@ stage1:
         case SDL_KEYDOWN:
             switch(ev.key.keysym.sym)
             {
-            case SDLK_KP_ENTER:
+            case SDLK_KP_ENTER: ///pressed KeyPad Enter
+                r=0;
+                goto stage1;///play again
+                break;
+            }
+            switch(ev.key.keysym.scancode)
+            {
+            case SDL_SCANCODE_RETURN:///pressed enter
 //                std::cout<<"Pressed Enter"<<std::endl;
                 r=0;
                 goto stage1;///play again

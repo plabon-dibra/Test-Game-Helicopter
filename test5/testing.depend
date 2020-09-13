@@ -251,3 +251,41 @@
 	"Src\Rect\Rect.h"
 	"Sound.h"
 
+1600027217 source:c:\users\plabo\desktop\test5\main.cpp
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"Src\Window\Window.h"
+	"Src\Rect\Rect.h"
+	"Sound.h"
+
+1600019294 c:\users\plabo\desktop\test5\src\window\window.h
+	<string>
+	<SDL_mixer.h>
+	<SDL.h>
+	<SDL_ttf.h>
+
+1599790948 c:\users\plabo\desktop\test5\src\rect\rect.h
+	<string>
+	"../Window/Window.h"
+
+1598714534 c:\users\plabo\desktop\test5\src\sound\sound.h
+	<SDL_mixer.h>
+	<vector>
+	<SDL.h>
+
+1599791244 source:c:\users\plabo\desktop\test5\src\rect\rect.cpp
+	"Rect.h"
+	<SDL_image.h>
+	<iostream>
+
+1599791146 source:c:\users\plabo\desktop\test5\src\sound\sound.cpp
+	"Sound.h"
+	<iostream>
+
+1599791020 source:c:\users\plabo\desktop\test5\src\window\window.cpp
+	"Window.h"
+	<SDL_image.h>
+	<iostream>
+
