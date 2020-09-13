@@ -504,6 +504,9 @@ stage1:
                 break;
             }
             break;
+        case SDL_QUIT:
+            r=0;
+            break;
         }
     }
 
