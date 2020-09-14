@@ -39,6 +39,7 @@ void Sound::playSound(const int chose) const
         std::cout<<"Out of sound range!\n";
         return ;
     }
+    std::cout<<"Played Sound"<<std::endl;
     Mix_PlayChannel(-1,m_Sounds[chose],0);
 }
 

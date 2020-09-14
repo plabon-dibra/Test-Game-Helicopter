@@ -228,7 +228,7 @@
 	<SDL.h>
 	<SDL_ttf.h>
 
-1599791146 source:h:\game test\test5\src\sound\sound.cpp
+1600063087 source:h:\game test\test5\src\sound\sound.cpp
 	"Sound.h"
 	<iostream>
 
@@ -242,7 +242,7 @@
 	<SDL_image.h>
 	<iostream>
 
-1600021876 source:h:\game test\test5\main.cpp
+1600064414 source:h:\game test\test5\main.cpp
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>

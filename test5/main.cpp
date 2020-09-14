@@ -87,13 +87,10 @@ int main(int argc,char *argv[])
 
     /// Sound
     bool soundFlag=true;
-    Sound sound;
-    sound.addMusic("Assets/Sounds/backsound.mp3");
-    sound.playMusic(-1);  ///infinite loop
-    sound.pauseMusic();   ///paused music
-
-
-
+    Sound sound,heliSound,bomb;
+    sound.addMusic("Assets/Sounds/backsound.mp3"); ///addding music
+    bomb.addMusic("Assets/Sounds/bomb.mp3"); ///addding music
+    heliSound.addMusic("Assets/Sounds/heliSound.mp3"); ///addding music
 
     welcome.draw();   ///welcome image display
     SDL_RenderPresent(window._renderer);
@@ -104,6 +101,8 @@ int main(int argc,char *argv[])
 
 
 stage1:
+    sound.playMusic(-1);  ///infinite loop
+    sound.pauseMusic();   ///paused music
 
     window._closed=0;
     heli1._y=Height/3;
@@ -112,11 +111,11 @@ stage1:
     event=evnt;
     while(run==1)
     {
-        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
+//        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
         SDL_PollEvent(&event);
         switch(event.type)
         {
-        case SDL_QUIT:
+        case SDL_QUIT:///Exit
             run=0;
             break;
         case SDL_MOUSEBUTTONDOWN: ///on mouse click
@@ -128,7 +127,7 @@ stage1:
                 {
                     n=check(x,y);  ///check mouse position
 //                    std::cout<<"Clicked N= " <<n<<std::endl;
-                    if(n!=0)
+                    if(n!=0)///Entering page 2
                     {
                         M=1;
                         m=1;
@@ -141,7 +140,7 @@ stage1:
                 else if(M==1)
                 {
                     m=check2(x,y);
-                    if(m==2)
+                    if(m==2)///Back to main menu
                     {
                         M=0;
                         m=0;
@@ -370,7 +369,7 @@ stage1:
         SDL_RenderPresent(window._renderer);
         SDL_RenderClear(window._renderer);
 
-        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
+//        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
 
     }
 
@@ -385,7 +384,6 @@ stage1:
 
     if(run==0)
         return 0;
-    int s=0,v=0;
 
 
 
@@ -408,7 +406,7 @@ stage1:
     int prob;
     for(int i=0; i<5; i++)
     {
-        prob=rand()%5;
+        prob=rand()%5; ///random function
         std::cout<<"Prob "<<prob<<std::endl;
         a[i].pos_y1=vec[prob].first;
         a[i].pos_y2=vec[prob].second;
@@ -425,6 +423,10 @@ stage1:
 
     ///play
     bool f=false;
+    int s=0,v=0;
+
+    sound.stopMusic();
+    heliSound.playMusic(-1);
     while(!window.isclosed())
     {
         if(v==0)
@@ -457,6 +459,11 @@ stage1:
             SDL_RenderPresent(window._renderer);
             SDL_RenderClear(window._renderer);
             window.close();
+            soundFlag=false;
+
+            heliSound.stopMusic();
+            bomb.playMusic(1);
+            SDL_Delay(1000);
             break;
 
         }
@@ -481,8 +488,7 @@ stage1:
     }
 
 
-
-
+    bomb.stopMusic();
 
 
 ///    goto main menu
