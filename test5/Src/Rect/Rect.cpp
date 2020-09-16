@@ -44,7 +44,7 @@ Rect::Rect(const Window &window, int x, int y, int w, int h, const std::string& 
     SDL_FreeSurface(surface);
 }
 
-int  Rect::pollEvents()
+int  Rect::pollEvents(bool flag)
 {
     SDL_Event event;
     SDL_PollEvent(&event);
@@ -56,10 +56,12 @@ int  Rect::pollEvents()
         switch(event.key.keysym.sym)
         {
         case SDLK_UP:
-            _y-=heli_d;
+            if(flag==true)
+            _y-=90;
             break;
         case SDLK_DOWN:
-            _y+=40;
+            if(flag==true)
+            _y+=45;
             break;
         case SDLK_ESCAPE:
            return 2;
@@ -78,12 +80,12 @@ int  Rect::pollEvents()
 
 bool Rect::collision(int x, int y1,int y2,int heli_x,int heli_y)
 {
-   if(heli_y<0||heli_y+_h>Height)
+   if(heli_y<50||heli_y>Height-100)
     return 1;
 
    if((heli_x+HeliWidth)>=x && (heli_x<(x+Distance)))
    {
-       if(heli_y<=y1  ||  heli_y>=y2)
+       if(heli_y<=y1  ||  heli_y+_h>=y2)
           return 1;
    }
 

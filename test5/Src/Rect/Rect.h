@@ -2,12 +2,9 @@
 #define RECT_H
 #include<string>
 #include "../Window/Window.h"
-#define LEVEL_EASY 5
-#define LEVEL_MEDIUM 3.5
-#define LEVEL_HARD 2
-#define HeliHeight 80
-#define HeliWidth 160
-#define Distance 5
+#define HeliHeight 60
+#define HeliWidth 120
+#define Distance 20
 #define ArrayDistance 240
 class Rect:public Window {
     public:
@@ -15,8 +12,8 @@ class Rect:public Window {
         Rect(const Window &window, int x,int y,int w,int h,const std::string &image_path);
         ~Rect();
         void draw()const;/// to display
-        int pollEvents();
-        int  _x,_y,heli_d=150;
+        int pollEvents(bool flag);
+        int  _x,_y;
         bool collision(int x, int y1,int y2,int heli_x,int heli_y);
     private:
         int _w,_h;

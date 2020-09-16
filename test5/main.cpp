@@ -47,14 +47,14 @@ int main(int argc,char *argv[])
 {
     Window window("Helicopter Game",Width,Height);   ///initialize window
 
-
     ///getting images
-    Rect heli1=Rect(window,100,100,160,80,"Assets/Images/heli1.png");
-    Rect heli2=Rect(window,100,100,160,80,"Assets/Images/heli2.png");
+    Rect heli1=Rect(window,100,100,HeliWidth,HeliHeight,"Assets/Images/heli1.png");
+    Rect heli2=Rect(window,100,100,HeliWidth,HeliHeight,"Assets/Images/heli2.png");
 
     Rect welcome=Rect(window,0,0,Width,Height,"Assets/Images/Welcome.png");
     Rect background=Rect(window,0,0,Width,Height,"Assets/Images/back.png");
     Rect gameOver=Rect(window,0,0,Width,Height,"Assets/Images/gameOver.jpg");
+    Rect wall=Rect(window,100,0,20,Height,"Assets/Images/wall.jpg");
 
     Rect menu=Rect(window,0,0,Width,Height,"Assets/Images/Menu/menu.jpg");
     Rect playMenu=Rect(window,0,0,Width,Height,"Assets/Images/Menu/playMenu.jpg");
@@ -106,8 +106,8 @@ stage1:
 
     window._closed=0;
     heli1._y=Height/3;
-    int run =1,n=0,m=0,M=0,Mm=0;
-    float v_level=LEVEL_EASY;  ///initially  Easy level
+    int run =1,n=0,m=0,M=0,Mm=0,speed=1;
+    float v_level=5;  ///initially
     event=evnt;
     while(run==1)
     {
@@ -318,7 +318,8 @@ stage1:
 //        std::cout<<"case6  n= "<<n<<std::endl;
             if(n==3)
             {
-                v_level=LEVEL_EASY;
+                ///Level Easy
+                v_level=5;
                 levelEasy.draw();
             }
             else if(n==5)
@@ -337,7 +338,8 @@ stage1:
 //            std::cout<<"case7"<<std::endl;
             if(n==3)
             {
-                v_level=LEVEL_MEDIUM;
+                ///Level Medium
+                v_level=4.5;
                 levelMedium.draw();
             }
             else if(n==5)
@@ -355,7 +357,9 @@ stage1:
 //            std::cout<<"case8"<<std::endl;
             if(n==3)
             {
-                v_level=LEVEL_HARD;
+                ///Level Hard
+                v_level=5;
+                speed=2;
                 levelHard.draw();
             }
             else if(n==5)
@@ -372,16 +376,6 @@ stage1:
 //        std::cout<<"Run END=>run="<<run<<"   n="<<n<<"   ,m="<<m<<"   M="<<M<<"   Mm="<<Mm<<std::endl;
 
     }
-
-
-    if(v_level==LEVEL_EASY)
-        heli1.heli_d=100;
-    else if(v_level==LEVEL_MEDIUM)
-        heli1.heli_d=130;
-    else
-        heli1.heli_d=150;
-
-
     if(run==0)
         return 0;
 
@@ -395,11 +389,11 @@ stage1:
 
     ///creating obstacles
     std::vector < std::pair<int,int> >vec;
-    vec.push_back({0,120});
-    vec.push_back({150,320});
-    vec.push_back({290,410});
-    vec.push_back({430,550});
-    vec.push_back({580,700});
+    vec.push_back({0,240});
+    vec.push_back({200,380});
+    vec.push_back({300,480});
+    vec.push_back({400,580});
+    vec.push_back({490,700});
     time_t t;
     srand((unsigned) time(&t));
 
@@ -411,7 +405,7 @@ stage1:
         a[i].pos_y1=vec[prob].first;
         a[i].pos_y2=vec[prob].second;
     }
-    a[0].x=600;
+    a[0].x=700;
 
 
 
@@ -423,7 +417,7 @@ stage1:
 
     ///play
     bool f=false;
-    int s=0,v=0;
+    int s=0,v=1;
 
     sound.stopMusic();
     heliSound.playMusic(-1);
@@ -431,19 +425,19 @@ stage1:
     {
         if(v==0)
         {
-            v=heli1.pollEvents();
+            v=heli1.pollEvents(0);
             if(v==1)s=0;
             if(v==2)window.close();
         }
         else
         {
-            s=heli1.pollEvents();
+            s=heli1.pollEvents(1);
             if(s==1)v=0;
             if(s==2)window.close();
         }
 
         ///Game start/resume/pause   press-> s
-        if(v==true)heli1._y++;
+        if(v==1)heli1._y++;
 
 
 
@@ -451,21 +445,63 @@ stage1:
         heli2._y=heli1._y;
 
 
+//        ///background
+//        background.draw();
 
-        ///collision
-        if(heli1.collision(0,0,0,heli1._x,heli1._y))
+
+        int vv=0,ffff=0;
+        for(int i=0; i<5; i++)
         {
-            gameOver.draw();
-            SDL_RenderPresent(window._renderer);
-            SDL_RenderClear(window._renderer);
-            window.close();
-            soundFlag=false;
+            wall._x= a[0].x+vv;
+            wall._y= a[i].pos_y1-Height;
+            wall.draw();
+            wall._y= a[i].pos_y2;
+            wall.draw();
 
-            heliSound.stopMusic();
-            bomb.playMusic(1);
-            SDL_Delay(1000);
+
+
+            ///collision
+            if(heli1.collision(a[i].x+vv,a[i].pos_y1,a[i].pos_y2,heli1._x,heli1._y))
+            {
+                gameOver.draw();
+                SDL_RenderPresent(window._renderer);
+                SDL_RenderClear(window._renderer);
+                window.close();
+                soundFlag=false;
+                ffff=1;
+                heliSound.stopMusic();
+                bomb.playMusic(1);
+                SDL_Delay(1000);
+                break;
+            }
+            if(ffff==1)
+                break;
+
+            vv+=450;
+        }
+        if(ffff==1)
             break;
 
+
+        if(v==1)
+            a[0].x-=speed;
+
+        a[1].x=a[0].x+450;
+
+
+        srand((unsigned) time(&t));
+
+        if(a[0].x<1)
+        {
+            for(int i=1; i<5; i++)
+            {
+                a[i-1]=a[i];
+            }
+
+            prob=rand()%5; ///random function
+            std::cout<<prob<<std::endl;
+            a[4].pos_y1=vec[prob].first;
+            a[4].pos_y2=vec[prob].second;
         }
 
 
@@ -486,12 +522,9 @@ stage1:
         window.clear();
         SDL_Delay(v_level);
     }
-
-
     bomb.stopMusic();
 
 
-///    goto main menu
     int r=1;
     ev=evnt;
     while(r==1)
@@ -505,7 +538,7 @@ stage1:
             {
             case SDLK_KP_ENTER: ///pressed KeyPad Enter
                 r=0;
-                goto stage1;///play again
+                goto stage1;///play again  (Go to MainMenu)
                 break;
             }
             switch(ev.key.keysym.scancode)
@@ -513,7 +546,7 @@ stage1:
             case SDL_SCANCODE_RETURN:///pressed enter
 //                std::cout<<"Pressed Enter"<<std::endl;
                 r=0;
-                goto stage1;///play again
+                goto stage1;///play again   (Go to MainMenu)
                 break;
             }
             break;
