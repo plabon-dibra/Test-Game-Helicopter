@@ -6,6 +6,7 @@
 #define HeliWidth 120
 #define Distance 20
 #define ArrayDistance 240
+
 class Rect:public Window {
     public:
         Rect(const Window &window, int x,int y,int w,int h,int r,int g,int b,int a);
@@ -14,7 +15,8 @@ class Rect:public Window {
         void draw()const;/// to display
         int pollEvents(bool flag);
         int  _x,_y;
-        bool collision(int x, int y1,int y2,int heli_x,int heli_y);
+        bool btn[2]={0};
+        bool collision(int x, int y1,int y2,int heli_x,int heli_y,int Height);
     private:
         int _w,_h;
         int _r,_g,_b,_a;

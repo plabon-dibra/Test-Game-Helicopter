@@ -48,6 +48,8 @@
 		<Unit filename="Src/Rect/Rect.h" />
 		<Unit filename="Src/Sound/Sound.cpp" />
 		<Unit filename="Src/Sound/Sound.h" />
+		<Unit filename="Src/Text/Text.cpp" />
+		<Unit filename="Src/Text/Text.h" />
 		<Unit filename="Src/Window/Window.cpp" />
 		<Unit filename="Src/Window/Window.h" />
 		<Unit filename="bin/Debug/pic.bmp" />

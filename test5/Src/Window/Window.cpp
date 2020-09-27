@@ -28,8 +28,8 @@ Window::~Window()
 
 void Window::clear()const
 {
-    SDL_Rect rect={0,0,Width,50};
-    SDL_Rect rect2={0,Height-50,Width,50};
+    SDL_Rect rect={0,0,_width,50};
+    SDL_Rect rect2={0,_height-50,_width,50};
     SDL_SetRenderDrawColor(_renderer,102,0,102,255);
     SDL_RenderFillRect(_renderer,&rect);
     SDL_SetRenderDrawColor(_renderer,64,64,64,255);
@@ -58,9 +58,8 @@ bool Window::init()
 
     if(TTF_Init()<0)
         std::cout<<"Failed to initialize ttf.  Error "<<TTF_GetError()<<std::endl;
-
-
-    _window = SDL_CreateWindow(m_title.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,_width,_height,0);///creating window
+    _window = SDL_CreateWindow(m_title.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,_width,_height,1);///creating window
+//    _window = SDL_CreateWindow(m_title.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SDL_WINDOW_FULLSCREEN,SDL_WINDOW_FULLSCREEN,1);///creating window
 
     if(_window ==nullptr)
     {

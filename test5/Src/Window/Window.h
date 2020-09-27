@@ -4,8 +4,7 @@
 #include<SDL_mixer.h>
 #include<SDL.h>
 #include<SDL_ttf.h>
-#define Height 700
-#define Width 1200
+
 class Window
 {
     public:
@@ -19,11 +18,12 @@ class Window
         SDL_Window* _window =nullptr;
         SDL_Renderer* _renderer=nullptr;
         bool _closed=false;
+        int _width;
+        int _height;
 
     private:
         std::string m_title;
-        int _width=Width;
-        int _height=Height;
+
 };
 
 #endif // WINDOW_H

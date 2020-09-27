@@ -52,42 +52,50 @@ int  Rect::pollEvents(bool flag)
     {
     case SDL_QUIT:
         return 2;
-    case SDL_KEYDOWN:///on mouse clicked
+
+    case SDL_KEYDOWN:///key pressed
         switch(event.key.keysym.sym)
         {
         case SDLK_UP:
-            if(flag==true)
-            _y-=90;
+            btn[0]=1;
             break;
         case SDLK_DOWN:
-            if(flag==true)
-            _y+=45;
+            btn[1]=1;
             break;
         case SDLK_ESCAPE:
-           return 2;
+            return 2;
             break;
-        case SDLK_s:///pressed s
+        case SDLK_s:
             return 1;
             break;
         }
         break;
-
-    default:
+    case SDL_KEYUP:///key released
+        switch(event.key.keysym.sym)
+        {
+        case SDLK_UP:
+            btn[0]=0;
+            break;
+        case SDLK_DOWN:
+            btn[1]=0;
+            break;
+        }
         break;
     }
     return 0;
+
 }
 
-bool Rect::collision(int x, int y1,int y2,int heli_x,int heli_y)
+bool Rect::collision(int x, int y1,int y2,int heli_x,int heli_y,int Height)
 {
-   if(heli_y<50||heli_y>Height-100)
-    return 1;
+    if(heli_y<50||heli_y>Height-100)
+        return 1;
 
-   if((heli_x+HeliWidth)>=x && (heli_x<(x+Distance)))
-   {
-       if(heli_y<=y1  ||  heli_y+_h>=y2)
-          return 1;
-   }
+    if((heli_x+HeliWidth)>=x && (heli_x<(x+Distance)))
+    {
+        if(heli_y<=y1  ||  heli_y+_h>=y2)
+            return 1;
+    }
 
-   return 0;
+    return 0;
 }

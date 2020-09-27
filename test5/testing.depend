@@ -213,16 +213,16 @@
 	"Src\Rect\Rect.h"
 	"Sound.h"
 
-1600243529 source:h:\game test\test5\src\rect\rect.cpp
+1601021055 source:h:\game test\test5\src\rect\rect.cpp
 	"Rect.h"
 	<SDL_image.h>
 	<iostream>
 
-1600243905 h:\game test\test5\src\rect\rect.h
+1601021561 h:\game test\test5\src\rect\rect.h
 	<string>
 	"../Window/Window.h"
 
-1600019294 h:\game test\test5\src\window\window.h
+1600587542 h:\game test\test5\src\window\window.h
 	<string>
 	<SDL_mixer.h>
 	<SDL.h>
@@ -237,12 +237,12 @@
 	<vector>
 	<SDL.h>
 
-1599791020 source:h:\game test\test5\src\window\window.cpp
+1601185786 source:h:\game test\test5\src\window\window.cpp
 	"Window.h"
 	<SDL_image.h>
 	<iostream>
 
-1600244033 source:h:\game test\test5\main.cpp
+1601188305 source:h:\game test\test5\main.cpp
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -250,6 +250,7 @@
 	"Src\Window\Window.h"
 	"Src\Rect\Rect.h"
 	"Sound.h"
+	"Text.h"
 
 1600027217 source:c:\users\plabo\desktop\test5\main.cpp
 	<bits/stdc++.h>
@@ -288,4 +289,13 @@
 	"Window.h"
 	<SDL_image.h>
 	<iostream>
+
+1601125815 source:h:\game test\test5\src\text\text.cpp
+	"Text.h"
+	<iostream>
+
+1601123281 h:\game test\test5\src\text\text.h
+	<SDL_ttf.h>
+	<string>
+	<../Window/Window.h>
 
