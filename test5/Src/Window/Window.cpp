@@ -46,30 +46,35 @@ bool Window::init()
 {
     if(SDL_Init(SDL_INIT_VIDEO)!= 0)
     {
-        std::cerr<<"Failed to initialize SDL.\n";
+        std::cout<<"Failed to initialize video. Error: "<<SDL_GetError()<<std::endl;
         return 0;
     }
 
     if(IMG_Init(IMG_INIT_PNG & IMG_INIT_JPG))
     {
-        std::cerr<<"Failed to initialize SDL_Image.\n";
+        std::cout<<"Failed to initialize Image. Error: "<<IMG_GetError()<<std::endl;
         return false;
     }
 
     if(TTF_Init()<0)
         std::cout<<"Failed to initialize ttf.  Error "<<TTF_GetError()<<std::endl;
+
+
+
     _window = SDL_CreateWindow(m_title.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,_width,_height,1);///creating window
-//    _window = SDL_CreateWindow(m_title.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SDL_WINDOW_FULLSCREEN,SDL_WINDOW_FULLSCREEN,1);///creating window
+
+
+
 
     if(_window ==nullptr)
     {
-        std::cerr<<"Failed to create window.\n";
+        std::cout<<"Failed to create window. Error: "<<SDL_GetError()<<std::endl;
         return 0;
     }
     _renderer =SDL_CreateRenderer(_window,-1,SDL_RENDERER_ACCELERATED); ///creating renderer
     if(_renderer==nullptr)
     {
-        std::cerr<<"Failed to create renderer.\n";
+        std::cout<<"Failed to create renderer. Error: "<<SDL_GetError()<<std::endl;
         return 0;
     }
     return true;

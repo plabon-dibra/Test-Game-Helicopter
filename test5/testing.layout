@@ -2,52 +2,49 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Src\Rect\Rect.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+	<File name="Src\Sound\Sound.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2385" topLine="78" />
-		</Cursor>
-	</File>
-	<File name="Src\Window\Window.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="490" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Src\Window\Window.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1589" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Src\Text\Text.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="820" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="Src\Sound\Sound.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="15" topLine="0" />
+			<Cursor1 position="302" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Src\Rect\Rect.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="14" topLine="0" />
+			<Cursor1 position="201" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Src\Text\Text.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Src\Text\Text.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Src\Window\Window.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1410" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="Src\Window\Window.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="227" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Src\Text\Text.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="222" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+	<File name="Src\Sound\Sound.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="17258" topLine="900" />
+			<Cursor1 position="776" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="39" />
-		</Folding>
 	</File>
-	<File name="Src\Sound\Sound.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+	<File name="Src\Rect\Rect.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1072" topLine="44" />
+			<Cursor1 position="1731" topLine="60" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="20" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22716" topLine="685" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

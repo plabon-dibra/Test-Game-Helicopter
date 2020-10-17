@@ -1,31 +1,28 @@
 #include "Text.h"
-#include<iostream>
 Text::Text()
 {
+    //ctor
     if(TTF_Init()==-1)
         printf("TTF init Error: %s\n",TTF_GetError());
-    //ctor
 }
 
 Text::~Text()
 {
     //dtor
-//    SDL_Quit();
-//    TTF_Quit();
 }
 void Text::createText(const Window &window,std::string s,int size)
 {
-//    printf("Creating text\n");
-
     font=TTF_OpenFont("georgiai.ttf",size);
     if(font==nullptr)
         printf("Font error  %s\n",TTF_GetError());
     surface=TTF_RenderText_Solid(font,s.c_str(),color);
     if(surface==nullptr)
-        std::cout<<"Error Surface :"<<TTF_GetError()<<std::endl;
+        printf("Error Surface  : %s\n",TTF_GetError());
     texture=SDL_CreateTextureFromSurface(window._renderer,surface);
      if(texture==nullptr)
-        std::cout<<"Error texture :"<<TTF_GetError()<<std::endl;
+             printf("Error texture  : %s\n",TTF_GetError());
+
+
     SDL_FreeSurface(surface);
     surface=nullptr;
 }

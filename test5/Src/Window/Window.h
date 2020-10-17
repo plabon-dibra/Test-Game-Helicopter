@@ -15,7 +15,7 @@ class Window
         inline bool isclosed()const{return _closed;}
         bool init();///initialization everything
         void close(){_closed=true;};
-        SDL_Window* _window =nullptr;
+        SDL_Window* _window = nullptr;
         SDL_Renderer* _renderer=nullptr;
         bool _closed=false;
         int _width;

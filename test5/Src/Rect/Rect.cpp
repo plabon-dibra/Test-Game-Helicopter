@@ -32,15 +32,12 @@ void Rect::draw()const
 Rect::Rect(const Window &window, int x, int y, int w, int h, const std::string& image_path): Window(window), _w(w),_h(h),_x(x),_y(y)
 {
     SDL_Surface* surface = IMG_Load(image_path.c_str());///loading images
-    if(!surface)
-    {
-        std::cerr<<"Failed to create surface.\n";
-    }
+    if(!surface)std::cout<<"Failed to load image. Error :"<<IMG_GetError()<<std::endl;
+
     _texture = SDL_CreateTextureFromSurface(_renderer,surface); ///creating texture from surface to render
-    if(!_texture)
-    {
-        std::cerr<<"Failed to create texture.\n";
-    }
+
+    if(!_texture)std::cout<<"Failed to create texture.Error :"<<SDL_GetError()<<std::endl;
+
     SDL_FreeSurface(surface);
 }
 
@@ -52,8 +49,19 @@ int  Rect::pollEvents(bool flag)
     {
     case SDL_QUIT:
         return 2;
+        break;
 
     case SDL_KEYDOWN:///key pressed
+
+        switch(event.key.keysym.scancode)
+        {
+        case SDL_SCANCODE_ESCAPE:///pressed Escape
+//            std::cout<<"Pressed Eacape\n"<<std::endl;
+            return 2;
+            break;
+        }
+
+
         switch(event.key.keysym.sym)
         {
         case SDLK_UP:
@@ -69,6 +77,7 @@ int  Rect::pollEvents(bool flag)
             return 1;
             break;
         }
+
         break;
     case SDL_KEYUP:///key released
         switch(event.key.keysym.sym)
@@ -92,10 +101,8 @@ bool Rect::collision(int x, int y1,int y2,int heli_x,int heli_y,int Height)
         return 1;
 
     if((heli_x+HeliWidth)>=x && (heli_x<(x+Distance)))
-    {
         if(heli_y<=y1  ||  heli_y+_h>=y2)
             return 1;
-    }
 
     return 0;
 }
